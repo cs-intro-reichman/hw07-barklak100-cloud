@@ -12,8 +12,14 @@ public class Binomial {
 
 	// Computes the Binomial function, basic version.
 	public static int binomial1(int n, int k) { 
-		//// Repplace the following comment with your code
-		return 0;
+		int[][] memo = new int[n + 1][k + 1];
+
+		for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= k; j++) {
+                memo[i][j] = -1;
+			}
+		}
+			return binomial(n, k, memo);
 	 }
 	
 	// Computes the Binomial function, efficiently
