@@ -20,7 +20,6 @@ public class Binomial {
         return calculateBinomial(n, k, memo);
     }
 
-    // מתודת עזר רקורסיבית עם Memoization
     private static long calculateBinomial(int n, int k, long[][] memo) {
         if (k > n || k < 0) return 0;
         if (k == 0 || n == k) return 1;
@@ -36,4 +35,18 @@ public class Binomial {
     public static long binomial1(int n, int k) {
         return binomial(n, k);
     }
+}
+
+	public static boolean isSorted(int[] arr) {
+    	if (arr == null || arr.length <= 1) {
+        return true;
+    }
+
+   		 for (int i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            return false; 
+        }
+    }
+    
+    return true;
 }
