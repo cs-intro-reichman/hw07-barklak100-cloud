@@ -2,12 +2,12 @@ public class Binomial {
     public static void main(String[] args) {
         int n = 50;
         int k = 20;
-        System.out.println("Result for (" + n + "," + k + "): " + binomial(n, k));
+        System.out.println("Result for (" + n + "," + k + "): " + binomial1(n, k));
     }
 
-    public static long binomial(int n, int k) {
+    public static long binomial1(int n, int k) { 
         if (k > n) return 0;
-        if (k == 0 || n == 0) return 1;
+        if (k == 0 || n == k) return 1; 
 
         long[][] memo = new long[n + 1][k + 1];
 
@@ -20,6 +20,7 @@ public class Binomial {
         return binomial(n, k, memo);
     }
 
+    // המתודה הזו מחזירה long כי מקדם בינומי יכול להיות מספר עצום
     private static long binomial(int n, int k, long[][] memo) {
         if (k > n) return 0;
         if (k == 0 || n == k) return 1;
