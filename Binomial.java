@@ -1,11 +1,16 @@
-public class Binomial { 
+public class Binomial {
 
     public static void main(String[] args) {
+    }
+
+    public static long binomial1(int n, int k) {
+        return binomial(n, k);
     }
 
     public static long binomial(int n, int k) {
         if (k > n || k < 0) return 0;
         if (k == 0 || n == k) return 1;
+
         long[][] memo = new long[n + 1][k + 1];
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= k; j++) {
@@ -19,6 +24,7 @@ public class Binomial {
         if (k > n || k < 0) return 0;
         if (k == 0 || n == k) return 1;
         if (memo[n][k] != -1) return memo[n][k];
+
         memo[n][k] = calculateBinomial(n - 1, k, memo) + calculateBinomial(n - 1, k - 1, memo);
         return memo[n][k];
     }
@@ -33,4 +39,24 @@ public class Binomial {
         return true;
     }
 
-  }
+    public static String intToBin(int n) {
+        if (n == 0) return "0";
+        String bin = "";
+        while (n > 0) {
+            bin = (n % 2) + bin;
+            n = n / 2;
+        }
+        return bin;
+    }
+
+    public static boolean isPalindrome(String s) {
+        int low = 0;
+        int high = s.length() - 1;
+        while (low < high) {
+            if (s.charAt(low) != s.charAt(high)) return false;
+            low++;
+            high--;
+        }
+        return true;
+    }
+}
