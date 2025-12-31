@@ -29,15 +29,19 @@ public class Binomial {
         return memo[n][k];
     }
 
-    public static boolean isSorted(int[] arr) {
-        if (arr == null || arr.length <= 1) return true;
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                return false;
-            }
-        }
+     public static boolean isSorted(int[] arr) {
+    if (arr == null || arr.length <= 1) {
         return true;
     }
+
+    for (int i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            return false; 
+        }
+    }
+
+    return true; 
+}
 
     public static String intToBin(int n) {
         if (n == 0) return "0";
@@ -49,14 +53,4 @@ public class Binomial {
         return bin;
     }
 
-    public static boolean isPalindrome(String s) {
-        int low = 0;
-        int high = s.length() - 1;
-        while (low < high) {
-            if (s.charAt(low) != s.charAt(high)) return false;
-            low++;
-            high--;
-        }
-        return true;
-    }
 }
