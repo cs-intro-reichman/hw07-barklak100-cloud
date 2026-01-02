@@ -30,17 +30,13 @@ public class Binomial {
     }
 
      public static boolean isSorted(int[] arr) {
-    		if (arr == null || arr.length <= 1) {
-        	return true;
-    }
-
     for (int i = 0; i < arr.length - 1; i++) {
         if (arr[i] > arr[i + 1]) {
-            return false;
+            return false; 
         }
     }
-
     return true;
+
 }
     public static String intToBin(int n) {
         if (n == 0) return "0";
